@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>365 Days for Mishi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root,
+    [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.25rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+
+      --color-bg: #fff9f2;
+      --color-surface: #fffdf8;
+      --color-surface-2: #fff6ea;
+      --color-surface-offset: #ffe8d2;
+      --color-border: rgba(63, 42, 17, 0.12);
+      --color-divider: rgba(63, 42, 17, 0.08);
+      --color-text: #3e2a17;
+      --color-text-muted: #7a654f;
+      --color-text-faint: #b59c82;
+      --color-primary: #ff7aa2;
+      --color-primary-hover: #ee5b89;
+      --color-secondary: #7d6bff;
+      --color-gold: #f8c847;
+      --color-success: #42a75d;
+      --color-blue: #57a6ff;
+      --color-peach: #ffb37a;
+      --color-mint: #7edcc8;
+      --color-paper: #fff7ec;
+      --color-card-glow: rgba(255, 122, 162, 0.16);
+      --shadow-sm: 0 8px 20px rgba(78, 42, 17, 0.07);
+      --shadow-md: 0 18px 40px rgba(78, 42, 17, 0.1);
+      --shadow-lg: 0 30px 80px rgba(78, 42, 17, 0.14);
+      --radius-sm: 0.6rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.5rem;
+      --radius-xl: 2rem;
+      --radius-full: 999px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --font-display: "Baloo 2", cursive;
+      --font-body: "Nunito", sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --color-bg: #1f1713;
+      --color-surface: #241c17;
+      --color-surface-2: #2e241e;
+      --color-surface-offset: #3b2d24;
+      --color-border: rgba(255, 241, 228, 0.1);
+      --color-divider: rgba(255, 241, 228, 0.08);
+      --color-text: #fff2e4;
+      --color-text-muted: #d5bfa9;
+      --color-text-faint: #8f7c6d;
+      --color-primary: #ff8eb0;
+      --color-primary-hover: #ff76a0;
+      --color-secondary: #9588ff;
+      --color-gold: #ffd45f;
+      --color-success: #63c27c;
+      --color-blue: #79b8ff;
+      --color-peach: #ffbd8d;
+      --color-mint: #8de8d4;
+      --color-paper: #2b211b;
+      --color-card-glow: rgba(255, 142, 176, 0.16);
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 18px 40px rgba(0, 0, 0, 0.3);
+      --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    body {
+      min-height: 100dvh;
+      background:
+        radial-gradient(circle at top left, rgba(255, 191, 210, 0.25), transparent 25%),
+        radial-gradient(circle at top right, rgba(125, 107, 255, 0.12), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(126, 220, 200, 0.12), transparent 24%),
+        var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    button {
+      font: inherit;
+      border: none;
+      cursor: pointer;
+      transition:
+        transform var(--transition-interactive),
+        box-shadow var(--transition-interactive),
+        background var(--transition-interactive),
+        color var(--transition-interactive),
+        border-color var(--transition-interactive);
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .app-shell {
+      width: min(1180px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: var(--space-6) 0 var(--space-16);
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      padding: var(--space-4) var(--space-5);
+      border: 1px solid var(--color-border);
+      background: color-mix(in srgb, var(--color-surface) 82%, transparent);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 1rem;
+      z-index: 10;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      min-width: 0;
+    }
+
+    .brand-logo {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 30% 30%, #fff 0 18%, transparent 19%),
+        linear-gradient(135deg, var(--color-primary), var(--color-gold));
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,0.3), var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-logo::after {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.34);
+      transform: rotate(16deg);
+    }
+
+    .brand-text h1 {
+      font-family: var(--font-display);
+      font-size: clamp(1.65rem, 1.2rem + 2vw, 2.5rem);
+      line-height: 0.95;
+    }
+
+    .brand-text p {
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      max-width: 38ch;
+    }
+
+    .topbar-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      padding: 0.75rem 1rem;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+      font-weight: 800;
+      font-size: var(--text-sm);
+      white-space: nowrap;
+    }
+
+    .theme-toggle {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-6);
+      align-items: stretch;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero-card,
+    .progress-card,
+    .calendar-card,
+    .reveal-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card {
+      padding: clamp(1.5rem, 2vw, 2rem);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at top right, rgba(255, 122, 162, 0.12), transparent 26%),
+        radial-gradient(circle at bottom left, rgba(126, 220, 200, 0.12), transparent 28%),
+        var(--color-surface);
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.55);
+      border: 1px solid var(--color-border);
+      padding: 0.6rem 0.95rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 800;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-card h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 2rem + 2vw, 4.6rem);
+      line-height: 0.9;
+      margin-bottom: var(--space-4);
+    }
+
+    .hero-card h2 .shine {
+      color: var(--color-primary);
+    }
+
+    .hero-card p {
+      color: var(--color-text-muted);
+      max-width: 46ch;
+      margin-bottom: var(--space-5);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+
+    .btn {
+      min-height: 50px;
+      padding: 0.9rem 1.2rem;
+      border-radius: var(--radius-full);
+      font-weight: 800;
+      font-size: var(--text-sm);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--color-primary), #ff9c7a);
+      color: white;
+      box-shadow: 0 12px 30px rgba(255, 122, 162, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--color-primary-hover), #ff8b63);
+    }
+
+    .btn-secondary {
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+
+    .hero-floaties {
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+      margin-top: var(--space-5);
+    }
+
+    .floaty {
+      padding: 0.55rem 0.85rem;
+      border-radius: var(--radius-full);
+      background: rgba(255,255,255,0.6);
+      border: 1px solid var(--color-border);
+      font-size: var(--text-sm);
+      font-weight: 800;
+      box-shadow: var(--shadow-sm);
+      animation: bob 4s ease-in-out infinite;
+    }
+
+    .floaty:nth-child(2) { animation-delay: 0.25s; }
+    .floaty:nth-child(3) { animation-delay: 0.5s; }
+    .floaty:nth-child(4) { animation-delay: 0.75s; }
+
+    .progress-card {
+      padding: clamp(1.25rem, 1.5vw, 1.6rem);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      justify-content: space-between;
+    }
+
+    .mascot {
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,255,255,0.8), transparent 30%),
+        linear-gradient(180deg, rgba(255, 240, 228, 0.9), rgba(255, 233, 243, 0.55));
+      border-radius: calc(var(--radius-xl) - 0.5rem);
+      border: 1px solid var(--color-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mascot .star {
+      position: absolute;
+      font-size: 1.1rem;
+      animation: twinkle 2.8s ease-in-out infinite;
+    }
+
+    .mascot .star:nth-child(1) { top: 18%; left: 18%; }
+    .mascot .star:nth-child(2) { top: 22%; right: 18%; animation-delay: 0.5s; }
+    .mascot .star:nth-child(3) { bottom: 18%; left: 20%; animation-delay: 1s; }
+
+    .bunny {
+      position: relative;
+      width: 140px;
+      height: 160px;
+    }
+
+    .bunny .ear {
+      position: absolute;
+      width: 38px;
+      height: 86px;
+      background: #fff;
+      border: 3px solid rgba(62,42,23,0.1);
+      border-radius: 999px;
+      top: 0;
+    }
+
+    .bunny .ear::after {
+      content: "";
+      position: absolute;
+      inset: 12px 9px 12px 9px;
+      background: #ffcad9;
+      border-radius: 999px;
+    }
+
+    .bunny .ear.left { left: 20px; transform: rotate(-10deg); }
+    .bunny .ear.right { right: 20px; transform: rotate(10deg); }
+
+    .bunny .head {
+      position: absolute;
+      width: 120px;
+      height: 110px;
+      background: #fff;
+      border-radius: 50%;
+      left: 10px;
+      top: 42px;
+      box-shadow: inset 0 -10px 0 rgba(255, 213, 226, 0.45);
+    }
+
+    .bunny .eye {
+      position: absolute;
+      top: 44px;
+      width: 10px;
+      height: 14px;
+      background: #3e2a17;
+      border-radius: 50%;
+    }
+
+    .bunny .eye.left { left: 34px; }
+    .bunny .eye.right { right: 34px; }
+
+    .bunny .nose {
+      position: absolute;
+      left: 50%;
+      top: 58px;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 12px;
+      background: #ff95b5;
+      border-radius: 50% 50% 60% 60%;
+    }
+
+    .bunny .smile {
+      position: absolute;
+      left: 50%;
+      top: 70px;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 15px;
+      border-bottom: 3px solid #7a654f;
+      border-radius: 0 0 999px 999px;
+    }
+
+    .progress-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+    }
+
+    .metric {
+      padding: 1rem;
+      border-radius: 1.2rem;
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+    }
+
+    .metric .label {
+      color: var(--color-text-muted);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+    }
+
+    .metric .value {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 1.4rem + 1vw, 2.7rem);
+      line-height: 1;
+      margin-top: 0.25rem;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: var(--space-6);
+      align-items: start;
+    }
+
+    .calendar-card,
+    .reveal-card {
+      padding: clamp(1.25rem, 1.8vw, 1.75rem);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-4);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .section-head h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 1.2rem + 1vw, 2.4rem);
+      line-height: 1;
+    }
+
+    .section-head p {
+      color: var(--color-text-muted);
+      max-width: 44ch;
+      font-size: var(--text-sm);
+    }
+
+    .calendar-wrap {
+      max-height: 540px;
+      overflow: auto;
+      padding-right: 0.25rem;
+    }
+
+    .days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 0.55rem;
+    }
+
+    .day-cell {
+      aspect-ratio: 1;
+      border-radius: 1rem;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface-2);
+      color: var(--color-text);
+      font-weight: 900;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      font-size: var(--text-sm);
+    }
+
+    .day-cell.locked {
+      opacity: 0.58;
+      filter: saturate(0.75);
+    }
+
+    .day-cell.unlocked {
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.85), transparent 40%),
+        linear-gradient(180deg, rgba(255, 205, 223, 0.5), rgba(255,255,255,0.9));
+    }
+
+    .day-cell.current {
+      outline: 3px solid rgba(125, 107, 255, 0.34);
+      transform: scale(1.03);
+      background: linear-gradient(135deg, rgba(255,122,162,0.2), rgba(125,107,255,0.18)), var(--color-surface-2);
+    }
+
+    .day-cell .tiny-lock,
+    .day-cell .tiny-star {
+      position: absolute;
+      right: 0.35rem;
+      bottom: 0.3rem;
+      font-size: 0.7rem;
+      opacity: 0.9;
+    }
+
+    .reveal-card {
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .day-title {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+
+    .day-chip {
+      background: rgba(255, 122, 162, 0.12);
+      color: var(--color-primary);
+      border: 1px solid rgba(255, 122, 162, 0.25);
+      padding: 0.5rem 0.8rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 900;
+    }
+
+    .special-chip {
+      background: rgba(248, 200, 71, 0.18);
+      color: #8a5f00;
+      border: 1px solid rgba(248, 200, 71, 0.35);
+      padding: 0.5rem 0.8rem;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 900;
+    }
+
+    .reveal-area {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: var(--space-4) 0 var(--space-2);
+    }
+
+    .reveal-shell {
+      width: min(100%, 560px);
+      min-height: 430px;
+      position: relative;
+      display: grid;
+      place-items: center;
+    }
+
+    .reveal-content {
+      width: 100%;
+      min-height: 430px;
+      border-radius: 2rem;
+      background:
+        radial-gradient(circle at top right, rgba(255,255,255,0.65), transparent 30%),
+        linear-gradient(180deg, color-mix(in srgb, var(--color-paper) 92%, white), color-mix(in srgb, var(--color-surface-2) 88%, white));
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(1.25rem, 2vw, 2rem);
+      isolation: isolate;
+    }
+
+    .reveal-headline {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 1.6rem + 1.5vw, 3.2rem);
+      line-height: 0.95;
+      margin-bottom: 0.8rem;
+    }
+
+    .reveal-subline {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      margin-bottom: 1rem;
+    }
+
+    .message-card {
+      width: 100%;
+      border-radius: 1.6rem;
+      padding: 1.2rem 1.2rem 1rem;
+      background: rgba(255,255,255,0.52);
+      border: 1px dashed rgba(125, 107, 255, 0.28);
+      backdrop-filter: blur(8px);
+      opacity: 0;
+      transform: scale(0.98);
+      transition:
+        opacity 450ms cubic-bezier(0.16, 1, 0.3, 1),
+        transform 450ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .reveal-content.open .message-card {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .message-card h4 {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 1.3rem + 1vw, 2.4rem);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .message-card p {
+      color: var(--color-text);
+      margin-bottom: 0.75rem;
+      text-align: center;
+      max-width: 38ch;
+      margin-inline: auto;
+    }
+
+    .message-card .motivation {
+      color: var(--color-secondary);
+      font-weight: 800;
+    }
+
+    .message-card .mini-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.45rem;
+      margin: 0.75rem auto 0;
+      padding: 0.65rem 0.95rem;
+      border-radius: var(--radius-full);
+      background: rgba(126, 220, 200, 0.2);
+      border: 1px solid rgba(126, 220, 200, 0.3);
+      font-size: var(--text-sm);
+      font-weight: 900;
+    }
+
+    .center-actions {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+
+    .reveal-btn {
+      background: linear-gradient(135deg, var(--color-secondary), var(--color-blue));
+      color: white;
+      box-shadow: 0 14px 28px rgba(87, 166, 255, 0.22);
+    }
+
+    .reveal-btn.secondary {
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      margin-top: var(--space-6);
+    }
+
+    .welcome-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(24, 12, 6, 0.35);
+      backdrop-filter: blur(10px);
+      display: grid;
+      place-items: center;
+      z-index: 30;
+      padding: 1rem;
+    }
+
+    .welcome-box {
+      width: min(640px, 100%);
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.76), transparent 36%),
+        var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 2rem;
+      box-shadow: var(--shadow-lg);
+      padding: clamp(1.4rem, 2.2vw, 2rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .welcome-box h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 1.6rem + 2vw, 3.8rem);
+      line-height: 0.92;
+      margin-bottom: 0.8rem;
+    }
+
+    .welcome-box p {
+      color: var(--color-text-muted);
+      max-width: 42ch;
+      margin: 0 auto 1.1rem;
+    }
+
+    .welcome-pills {
+      display: flex;
+      justify-content: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .welcome-pills span {
+      padding: 0.55rem 0.8rem;
+      border-radius: var(--radius-full);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      font-size: var(--text-sm);
+      font-weight: 900;
+    }
+
+    .confetti {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 40;
+      overflow: hidden;
+    }
+
+    .piece {
+      position: absolute;
+      width: 10px;
+      height: 16px;
+      border-radius: 6px;
+      opacity: 0.9;
+      animation: fall linear forwards;
+    }
+
+    .tiny-spark {
+      position: absolute;
+      font-size: 1rem;
+      animation: floatAway 1.6s ease-out forwards;
+      pointer-events: none;
+    }
+
+    /* Reveal types */
+    .reveal-prop {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .reveal-content.open .reveal-prop {
+      pointer-events: none;
+    }
+
+    .message-card {
+      position: relative;
+      z-index: 3;
+    }
+
+    .reveal-scroll .paper-roll {
+      position: absolute;
+      left: 50%;
+      top: 1.2rem;
+      transform: translateX(-50%);
+      width: 92%;
+      height: 80px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #f2d4aa, #d7a96b);
+      box-shadow: 0 14px 24px rgba(111, 72, 23, 0.18);
+      transition: height 900ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+
+    .reveal-scroll.open .paper-roll {
+      height: 24px;
+    }
+
+    .reveal-envelope .envelope-back {
+      position: absolute;
+      inset: 3rem 1.2rem 1.2rem;
+      background: #ffd8e7;
+      border-radius: 1.5rem;
+      border: 1px solid rgba(62,42,23,0.08);
+      z-index: 1;
+    }
+
+    .reveal-envelope .envelope-flap {
+      position: absolute;
+      left: 1.2rem;
+      right: 1.2rem;
+      top: 3rem;
+      height: 180px;
+      background: linear-gradient(180deg, #ff9fc0, #ff8db4);
+      clip-path: polygon(0 0, 100% 0, 50% 85%);
+      transform-origin: top center;
+      transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+
+    .reveal-envelope.open .envelope-flap {
+      transform: rotateX(180deg);
+    }
+
+    .reveal-curtain .curtain-left,
+    .reveal-curtain .curtain-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      background:
+        repeating-linear-gradient(90deg, #ff9eb2 0 12px, #ff86a3 12px 24px);
+      transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+
+    .reveal-curtain .curtain-left { left: 0; border-radius: 2rem 0 0 2rem; }
+    .reveal-curtain .curtain-right { right: 0; border-radius: 0 2rem 2rem 0; }
+    .reveal-curtain.open .curtain-left { transform: translateX(-100%); }
+    .reveal-curtain.open .curtain-right { transform: translateX(100%); }
+
+    .reveal-flower .flower-wrap {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      z-index: 2;
+    }
+
+    .reveal-flower .petal {
+      position: absolute;
+      width: 110px;
+      height: 140px;
+      background: radial-gradient(circle at 50% 30%, #ffd5e5, #ff8db4 80%);
+      border-radius: 50% 50% 40% 40%;
+      transform-origin: bottom center;
+      transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms ease;
+    }
+
+    .reveal-flower .petal:nth-child(1) { transform: translateY(-44px) rotate(0deg) scale(0.95); }
+    .reveal-flower .petal:nth-child(2) { transform: translateX(44px) rotate(72deg) scale(0.95); }
+    .reveal-flower .petal:nth-child(3) { transform: translateX(-44px) rotate(-72deg) scale(0.95); }
+    .reveal-flower .petal:nth-child(4) { transform: translate(28px, 52px) rotate(145deg) scale(0.95); }
+    .reveal-flower .petal:nth-child(5) { transform: translate(-28px, 52px) rotate(-145deg) scale(0.95); }
+    .reveal-flower.open .petal:nth-child(1) { transform: translateY(-170px) rotate(10deg) scale(0.6); opacity: 0.35; }
+    .reveal-flower.open .petal:nth-child(2) { transform: translateX(170px) rotate(80deg) scale(0.6); opacity: 0.35; }
+    .reveal-flower.open .petal:nth-child(3) { transform: translateX(-170px) rotate(-80deg) scale(0.6); opacity: 0.35; }
+    .reveal-flower.open .petal:nth-child(4) { transform: translate(126px, 130px) rotate(160deg) scale(0.55); opacity: 0.35; }
+    .reveal-flower.open .petal:nth-child(5) { transform: translate(-126px, 130px) rotate(-160deg) scale(0.55); opacity: 0.35; }
+
+    .reveal-book .book-left,
+    .reveal-book .book-right {
+      position: absolute;
+      top: 1rem;
+      bottom: 1rem;
+      width: 50%;
+      background: linear-gradient(180deg, #9cc5ff, #6ea7ff);
+      border: 1px solid rgba(62,42,23,0.08);
+      transition: transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+
+    .reveal-book .book-left {
+      left: 0;
+      transform-origin: left center;
+      border-radius: 2rem 0.5rem 0.5rem 2rem;
+    }
+
+    .reveal-book .book-right {
+      right: 0;
+      transform-origin: right center;
+      border-radius: 0.5rem 2rem 2rem 0.5rem;
+    }
+
+    .reveal-book.open .book-left { transform: perspective(1000px) rotateY(-118deg); }
+    .reveal-book.open .book-right { transform: perspective(1000px) rotateY(118deg); }
+
+    .reveal-star .star-cover {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: linear-gradient(180deg, #ffd866, #ffb84e);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 92%, 50% 70%, 21% 92%, 32% 57%, 2% 35%, 39% 35%);
+      filter: drop-shadow(0 16px 26px rgba(175, 124, 0, 0.3));
+      transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms ease;
+      z-index: 2;
+    }
+
+    .reveal-star.open .star-cover {
+      transform: scale(0.16) translateY(-760px) rotate(45deg);
+      opacity: 0;
+    }
+
+    .reveal-cloud .cloud {
+      position: absolute;
+      width: 320px;
+      height: 160px;
+      background: #fff;
+      border-radius: 999px;
+      filter: drop-shadow(0 12px 20px rgba(0,0,0,0.08));
+      z-index: 2;
+      transition: transform 850ms cubic-bezier(0.16, 1, 0.3, 1), opacity 850ms ease;
+    }
+
+    .reveal-cloud .cloud::before,
+    .reveal-cloud .cloud::after {
+      content: "";
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+    }
+
+    .reveal-cloud .cloud::before {
+      width: 120px;
+      height: 120px;
+      left: 38px;
+      top: -44px;
+    }
+
+    .reveal-cloud .cloud::after {
+      width: 144px;
+      height: 144px;
+      right: 40px;
+      top: -58px;
+    }
+
+    .reveal-cloud.open .cloud {
+      transform: scale(0.75) translateY(-220px);
+      opacity: 0;
+    }
+
+    .reveal-gift .gift-box {
+      position: absolute;
+      inset: 5.5rem 4rem 2rem;
+      background: linear-gradient(180deg, #ff9db8, #ff7ea2);
+      border-radius: 1.6rem;
+      box-shadow: 0 20px 40px rgba(255, 126, 162, 0.3);
+      z-index: 1;
+    }
+
+    .reveal-gift .gift-lid {
+      position: absolute;
+      left: 3.2rem;
+      right: 3.2rem;
+      top: 3rem;
+      height: 90px;
+      background: linear-gradient(180deg, #ffc45d, #f2a92a);
+      border-radius: 1.2rem;
+      transform-origin: center bottom;
+      transition: transform 850ms cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2;
+    }
+
+    .reveal-gift.open .gift-lid {
+      transform: translateY(-120px) rotate(-8deg);
+    }
+
+    .reveal-moon .moon-cover {
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: #251c61;
+      box-shadow: inset -38px 0 0 #ffd166;
+      z-index: 2;
+      transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms ease;
+    }
+
+    .reveal-moon.open .moon-cover {
+      transform: translateX(240px) rotate(16deg);
+      opacity: 0;
+    }
+
+    .reveal-scratch .scratch-layer {
+      position: absolute;
+      inset: 0;
+      border-radius: 2rem;
+      background:
+        linear-gradient(135deg, #e4e4e4, #bfbfbf),
+        repeating-linear-gradient(45deg, rgba(255,255,255,0.4) 0 12px, rgba(0,0,0,0.06) 12px 24px);
+      z-index: 2;
+      transition: clip-path 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms ease;
+      clip-path: inset(0 0 0 0 round 2rem);
+    }
+
+    .reveal-scratch.open .scratch-layer {
+      clip-path: inset(0 0 100% 0 round 2rem);
+      opacity: 0.2;
+    }
+
+    .reveal-kite .kite {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: linear-gradient(135deg, #7edcc8, #57a6ff);
+      transform: rotate(45deg);
+      z-index: 2;
+      transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms ease;
+      box-shadow: 0 16px 26px rgba(87,166,255,0.22);
+    }
+
+    .reveal-kite .kite::after {
+      content: "";
+      position: absolute;
+      width: 3px;
+      height: 170px;
+      background: rgba(62,42,23,0.25);
+      left: 50%;
+      top: 90%;
+      transform: translateX(-50%) rotate(-45deg);
+      transform-origin: top center;
+    }
+
+    .reveal-kite.open .kite {
+      transform: translate(200px, -220px) rotate(75deg) scale(0.55);
+      opacity: 0;
+    }
+
+    .reveal-snow .snow-globe {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(126,220,200,0.25));
+      border: 8px solid rgba(255,255,255,0.85);
+      z-index: 2;
+      overflow: hidden;
+      transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1), opacity 800ms ease;
+    }
+
+    .reveal-snow .snow-globe::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -36px;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 70px;
+      background: linear-gradient(180deg, #c58f4a, #8b5f26);
+      border-radius: 1.2rem;
+    }
+
+    .reveal-snow.open .snow-globe {
+      transform: scale(0.72) translateY(-160px);
+      opacity: 0;
+    }
+
+    .reveal-paper .paper-fold {
+      position: absolute;
+      inset: 1.2rem;
+      background: #fffdf7;
+      border-radius: 1.4rem;
+      z-index: 2;
+      box-shadow: 0 10px 26px rgba(62,42,23,0.08);
+      transition: transform 900ms cubic-bezier(0.16, 1, 0.3, 1), opacity 900ms ease;
+      clip-path: polygon(0 0, 80% 0, 100% 18%, 100% 100%, 0 100%);
+    }
+
+    .reveal-paper.open .paper-fold {
+      transform: rotate(-8deg) translate(-180px, -110px) scale(0.75);
+      opacity: 0;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.22); }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(540deg); opacity: 0.9; }
+    }
+
+    @keyframes floatAway {
+      0% { transform: translateY(0) scale(0.8); opacity: 1; }
+      100% { transform: translateY(-100px) scale(1.25); opacity: 0; }
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .reveal-card {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .app-shell {
+        width: min(100% - 1rem, 100%);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .topbar-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .days-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .reveal-content {
+        min-height: 380px;
+      }
+
+      .welcome-box h2 {
+        line-height: 0.98;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti" id="confetti"></div>
+
+  <div class="welcome-overlay" id="welcomeOverlay">
+    <div class="welcome-box">
+      <h2>365 little hugs<br>for Mishi</h2>
+      <p>
+        Har din ek naya surprise. Har din ek sweet message. Har din ek yaad that you are brave,
+        bright, loved and so very special.
+      </p>
+      <div class="welcome-pills">
+        <span>✨ 365 days</span>
+        <span>💌 Daily reveal</span>
+        <span>🌈 Cheerful messages</span>
+        <span>🌟 Brave like Mumma</span>
+      </div>
+      <button class="btn btn-primary" id="startJourneyBtn">Start my magic journey ✨</button>
+    </div>
+  </div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <h1>365 Days for Mishi</h1>
+          <p>One sweet unlock every day from the moment your journey begins.</p>
+        </div>
+      </div>
+
+      <div class="topbar-actions">
+        <div class="pill">🔥 <span id="streakText">0 day streak</span></div>
+        <div class="pill">🎁 <span id="unlockedText">0 unlocked</span></div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <div class="hero-badge">💖 For our sunshine girl</div>
+        <h2>Every day says<br><span class="shine">you matter</span></h2>
+        <p>
+          This is your happy little corner, Mishi. Every day opens one fresh surprise full of pyaar,
+          smiles, encouragement and tiny reminders that you can grow brave, kind and strong just like Mumma.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="jumpTodayBtn">Open today’s surprise</button>
+          <button class="btn btn-secondary" id="restartBtn">Restart journey</button>
+        </div>
+        <div class="hero-floaties">
+          <div class="floaty">Aaj ka smile</div>
+          <div class="floaty">Mumma ki sherni</div>
+          <div class="floaty">Tiny daily magic</div>
+          <div class="floaty">One page at a time</div>
+        </div>
+      </div>
+
+      <aside class="progress-card">
+        <div class="mascot">
+          <span class="star">✨</span>
+          <span class="star">⭐</span>
+          <span class="star">🌟</span>
+          <div class="bunny" aria-hidden="true">
+            <div class="ear left"></div>
+            <div class="ear right"></div>
+            <div class="head">
+              <div class="eye left"></div>
+              <div class="eye right"></div>
+              <div class="nose"></div>
+              <div class="smile"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="progress-metrics">
+          <div class="metric">
+            <div class="label">Current day</div>
+            <div class="value" id="currentDayMetric">1</div>
+          </div>
+          <div class="metric">
+            <div class="label">Days left</div>
+            <div class="value" id="daysLeftMetric">364</div>
+          </div>
+          <div class="metric">
+            <div class="label">Reveal style</div>
+            <div class="value" id="styleMetric" style="font-size:1.55rem;">Scroll</div>
+          </div>
+          <div class="metric">
+            <div class="label">Journey mood</div>
+            <div class="value" id="moodMetric" style="font-size:1.45rem;">Sparkly</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="main-grid">
+      <section class="calendar-card">
+        <div class="section-head">
+          <div>
+            <h3>Your 365-day trail</h3>
+            <p>Unlocked days sparkle. Locked days wait patiently for their turn.</p>
+          </div>
+        </div>
+        <div class="calendar-wrap">
+          <div class="days-grid" id="daysGrid"></div>
+        </div>
+      </section>
+
+      <section class="reveal-card" id="todaySection">
+        <div class="section-head">
+          <div>
+            <h3>Today’s page</h3>
+            <p id="dayIntroText">Click the button and today’s message will reveal itself in a magical way.</p>
+          </div>
+        </div>
+
+        <div class="day-title">
+          <div class="day-chip" id="dayChip">Day 1</div>
+          <div class="special-chip" id="specialChip">Fresh start</div>
+        </div>
+
+        <div class="reveal-area">
+          <div class="reveal-shell" id="revealShell"></div>
+        </div>
+
+        <div class="center-actions">
+          <button class="btn reveal-btn" id="openRevealBtn">Reveal today’s message 💫</button>
+          <button class="btn reveal-btn secondary" id="nextUnlockedBtn">Next unlocked day</button>
+        </div>
+      </section>
+    </section>
+
+    <p class="footer-note">
+      Made with pyaar for Mishi. One day, one smile, one warm reminder at a time.
+    </p>
+  </main>
+
+  <script>
+    const TOTAL_DAYS = 365;
+
+    const revealTypes = [
+      { id: "scroll", label: "Scroll", mood: "Dreamy" },
+      { id: "envelope", label: "Envelope", mood: "Sweet" },
+      { id: "curtain", label: "Curtain", mood: "Theatrical" },
+      { id: "flower", label: "Flower", mood: "Blooming" },
+      { id: "book", label: "Storybook", mood: "Cozy" },
+      { id: "star", label: "Star", mood: "Shiny" },
+      { id: "cloud", label: "Cloud", mood: "Soft" },
+      { id: "gift", label: "Gift box", mood: "Cheery" },
+      { id: "moon", label: "Moon", mood: "Calm" },
+      { id: "scratch", label: "Scratch card", mood: "Playful" },
+      { id: "kite", label: "Kite", mood: "Free" },
+      { id: "snow", label: "Snow globe", mood: "Magical" },
+      { id: "paper", label: "Paper note", mood: "Warm" }
+    ];
+
+    const specialMessages = {
+      1: {
+        title: "Hello my little sunshine",
+        line1: "Aaj se tumhari magic journey shuru hui. Har din tumhe yaad dilayega that you are loved so much and your smile is a full celebration.",
+        line2: "Mishi, you are tiny and precious but your heart already shines so bright. Bilkul Mumma ki brave little star.",
+        line3: "Aaj ka reminder. New beginnings are beautiful because they begin with hope.",
+        action: "Give your sweetest smile today 🌸"
+      },
+      7: {
+        title: "One whole sparkling week",
+        line1: "Dekho tumne ek poora week complete kar liya. Wah meri champion girl.",
+        line2: "When you keep showing up with your smile and courage, little steps become big magic.",
+        line3: "Mumma jaisi himmat dheere dheere roz ki small actions se banti hai.",
+        action: "Clap for yourself 7 times 👏"
+      },
+      30: {
+        title: "Thirty days of you being amazing",
+        line1: "Ek mahina of joy, courage and tiny wins. That is not small at all. That is beautiful discipline.",
+        line2: "You are learning that special children are not perfect children. They are children who keep trying with heart.",
+        line3: "Aaj Mumma ko hug dena and tell her she is brave too.",
+        action: "Say I can do hard things 💪"
+      },
+      50: {
+        title: "Fifty days strong",
+        line1: "Arre wah Mishi, 50 days. That means your heart knows how to stay bright even on normal days.",
+        line2: "Real strength is not loud. Sometimes it is simply getting up and trying again with a soft smile.",
+        line3: "You have that gift in you already.",
+        action: "Draw one tiny star today ⭐"
+      },
+      100: {
+        title: "One hundred golden days",
+        line1: "Aaj tum 100 days wali superstar ho. That is huge and so so lovely.",
+        line2: "Look at Mumma and see this. Brave people are not made in one day. They are made in caring days, patient days and trying-again days.",
+        line3: "Tum bhi waise hi grow kar rahi ho, with grace and sparkle.",
+        action: "Tell yourself I am growing beautifully 🌼"
+      },
+      150: {
+        title: "Your heart keeps blooming",
+        line1: "150 days later and your light has not dimmed even a little. It has grown warmer.",
+        line2: "Kind children change rooms. They make people feel safer and happier just by being themselves.",
+        line3: "Keep your softness. It is a superpower.",
+        action: "Do one kind thing for someone 💖"
+      },
+      200: {
+        title: "Two hundred days of courage",
+        line1: "Aaj ka message seedha dil se. You are not just cute. You are courageous too.",
+        line2: "Jab life thoda confusing hota hai, brave children keep walking with love. Just like brave mothers do.",
+        line3: "You can be gentle and strong at the same time.",
+        action: "Stand tall like a hero for 10 seconds 🦸"
+      },
+      250: {
+        title: "Still shining, still rising",
+        line1: "Some stars twinkle for a moment. You keep glowing again and again.",
+        line2: "That means your goodness is real. It lives inside you and comes back every day.",
+        line3: "Never think your small efforts are small. They are building your future.",
+        action: "Whisper I am proud of me 🌟"
+      },
+      300: {
+        title: "Three hundred happy pages",
+        line1: "300 pages of love and look at you, still moving ahead. Kitni pyari baat hai yeh.",
+        line2: "Big dreams are made from tiny honest days. Reading, smiling, helping, trying and caring.",
+        line3: "Mumma’s bravery can inspire you. Your own bravery can inspire the world one day.",
+        action: "Write or say one dream out loud 🎈"
+      },
+      365: {
+        title: "The whole magical year",
+        line1: "Mishi, you did it. 365 days of joy, hope, courage and love. What a beautiful journey this has been.",
+        line2: "Always remember this. You were never ordinary. From the beginning you were special, loved and full of bright possibilities.",
+        line3: "And yes, keep looking at Mumma too. Brave hearts can raise brave hearts.",
+        action: "Celebrate yourself like a queen 👑"
+      }
+    };
+
+    const openers = [
+      "Aaj ka little reminder",
+      "Sun meri pyaari Mishi",
+      "Aaj ki warm baat",
+      "Hello sunshine girl",
+      "Meri sweet champion",
+      "Today’s tiny truth",
+      "Ek pyara sa note",
+      "Listen little star"
+    ];
+
+    const traitLines = [
+      "your smile can make an ordinary day feel festive.",
+      "you bring softness and light wherever you go.",
+      "your heart is full of sweetness and quiet strength.",
+      "you notice little things and that is a beautiful gift.",
+      "you are learning and growing in your own lovely rhythm.",
+      "you have a spark that cannot be copied by anyone.",
+      "your kindness is one of your brightest superpowers.",
+      "you are stronger than many big people even know."
+    ];
+
+    const courageLines = [
+      "Bravery is not only loud. Sometimes bravery is trying again.",
+      "Strong hearts can be gentle and still powerful.",
+      "Every time you keep going, your confidence grows a little more.",
+      "Courage starts small and becomes mighty with practice.",
+      "You do not need to rush. Slow growth is still beautiful growth.",
+      "Trying with honesty is already a kind of winning.",
+      "A bright future is built from patient little steps.",
+      "Even on confusing days, you can stay kind and brave."
+    ];
+
+    const momLines = [
+      "And when you look at Mumma, see how brave love can be. You carry that same brave sparkle too.",
+      "Mumma shows you that real strength can be soft, caring and steady. That is something wonderful to learn from.",
+      "Aaj Mumma ko dekho and remember this. Brave people keep loving even on hard days.",
+      "The way Mumma stands strong with love is a beautiful example for your own heart.",
+      "You can learn so much from Mumma’s courage, patience and warmth.",
+      "One day people may look at you the same way, with pride, because brave children grow into brave people.",
+      "Mumma ki himmat is a quiet superpower. Notice it, learn from it and keep that light with you.",
+      "Strong girls often begin by watching strong women with loving hearts."
+    ];
+
+    const dreamLines = [
+      "You can dream big and still stay kind.",
+      "Your future is waiting for your sparkle, your effort and your heart.",
+      "The world always needs children who are bright and compassionate.",
+      "One day you may help, teach, build or heal in your own beautiful way.",
+      "Keep your wonder alive because it will guide you to amazing places.",
+      "Your imagination is not silly. It is one of your gifts.",
+      "There is so much lovely strength hidden inside your little everyday moments.",
+      "You are becoming someone beautiful from the inside out."
+    ];
+
+    const actionLines = [
+      "Smile at one person today 😊",
+      "Say one nice thing to yourself 💗",
+      "Give Mumma one warm hug 🤗",
+      "Try one thing even if it feels hard 🌈",
+      "Help someone in one small way 🌼",
+      "Draw a heart and keep it near you ❤️",
+      "Say thank you with your brightest voice 🌟",
+      "Stand tall and breathe like a hero 🦸",
+      "Read one line with full confidence 📚",
+      "Keep one happy thought in your pocket 🎀",
+      "Say I am brave and kind ✨",
+      "Look in the mirror and smile at yourself 🪞"
+    ];
+
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return decodeURIComponent(parts.pop().split(";").shift());
+      return null;
+    }
+
+    function setCookie(name, value, days = 400) {
+      const date = new Date();
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+      document.cookie = `${name}=${encodeURIComponent(value)}; expires=${date.toUTCString()}; path=/; SameSite=Lax`;
+    }
+
+    function eraseCookie(name) {
+      document.cookie = `${name}=; Max-Age=0; path=/`;
+    }
+
+    function getStartDate() {
+      const raw = getCookie("mishi_start_date");
+      return raw ? new Date(raw) : null;
+    }
+
+    function startJourney() {
+      const now = new Date();
+      setCookie("mishi_start_date", now.toISOString());
+      setCookie("mishi_theme", document.documentElement.getAttribute("data-theme") || "light");
+      document.getElementById("welcomeOverlay").classList.add("hidden");
+      selectedDay = 1;
+      renderAll();
+      makeConfetti();
+    }
+
+    function daysSinceStart(startDate) {
+      if (!startDate) return 0;
+      const now = new Date();
+      const diff = now - startDate;
+      return Math.floor(diff / (1000 * 60 * 60 * 24));
+    }
+
+    function unlockedDays() {
+      const start = getStartDate();
+      if (!start) return 0;
+      return Math.min(TOTAL_DAYS, Math.max(1, daysSinceStart(start) + 1));
+    }
+
+    function revealTypeForDay(day) {
+      return revealTypes[(day - 1) % revealTypes.length];
+    }
+
+    function niceOrdinal(day) {
+      const v = day % 100;
+      if (v >= 11 && v <= 13) return `${day}th`;
+      switch (day % 10) {
+        case 1: return `${day}st`;
+        case 2: return `${day}nd`;
+        case 3: return `${day}rd`;
+        default: return `${day}th`;
+      }
+    }
+
+    function buildGeneratedMessage(day) {
+      const a = openers[(day - 1) % openers.length];
+      const b = traitLines[(day + 1) % traitLines.length];
+      const c = courageLines[(day + 2) % courageLines.length];
+      const d = momLines[(day + 3) % momLines.length];
+      const e = dreamLines[(day + 4) % dreamLines.length];
+      const f = actionLines[(day + 5) % actionLines.length];
+
+      return {
+        title: `${a}`,
+        line1: `Mishi, ${b.charAt(0).toUpperCase() + b.slice(1)}`,
+        line2: `${c} ${d}`,
+        line3: `${e} Bas yaad rakhna, your little heart is doing better than you know.`,
+        action: f
+      };
+    }
+
+    function messageForDay(day) {
+      return specialMessages[day] || buildGeneratedMessage(day);
+    }
+
+    function specialLabel(day) {
+      if (day === 1) return "Fresh start";
+      if (day === 7) return "Week one glow";
+      if (day === 30) return "One month sparkle";
+      if (day === 100) return "Century of smiles";
+      if (day === 365) return "Grand finale";
+      if (day % 50 === 0) return "Milestone magic";
+      if (day % 10 === 0) return "Golden checkpoint";
+      return "Daily sparkle";
+    }
+
+    function buildRevealProp(typeId) {
+      switch (typeId) {
+        case "scroll":
+          return `<div class="reveal-prop paper-roll"></div>`;
+        case "envelope":
+          return `<div class="reveal-prop envelope-back"></div><div class="reveal-prop envelope-flap"></div>`;
+        case "curtain":
+          return `<div class="reveal-prop curtain-left"></div><div class="reveal-prop curtain-right"></div>`;
+        case "flower":
+          return `
+            <div class="reveal-prop flower-wrap">
+              <div class="petal"></div>
+              <div class="petal"></div>
+              <div class="petal"></div>
+              <div class="petal"></div>
+              <div class="petal"></div>
+            </div>
+          `;
+        case "book":
+          return `<div class="reveal-prop book-left"></div><div class="reveal-prop book-right"></div>`;
+        case "star":
+          return `<div class="reveal-prop star-cover"></div>`;
+        case "cloud":
+          return `<div class="reveal-prop cloud"></div>`;
+        case "gift":
+          return `<div class="reveal-prop gift-box"></div><div class="reveal-prop gift-lid"></div>`;
+        case "moon":
+          return `<div class="reveal-prop moon-cover"></div>`;
+        case "scratch":
+          return `<div class="reveal-prop scratch-layer"></div>`;
+        case "kite":
+          return `<div class="reveal-prop kite"></div>`;
+        case "snow":
+          return `<div class="reveal-prop snow-globe"></div>`;
+        case "paper":
+          return `<div class="reveal-prop paper-fold"></div>`;
+        default:
+          return "";
+      }
+    }
+
+    function renderReveal(day, open = false) {
+      const type = revealTypeForDay(day);
+      const msg = messageForDay(day);
+      const shell = document.getElementById("revealShell");
+
+      shell.innerHTML = `
+        <div class="reveal-content reveal-${type.id} ${open ? "open" : ""}" id="activeReveal">
+          ${buildRevealProp(type.id)}
+          <div class="message-card">
+            <h4>${msg.title}</h4>
+            <p>${msg.line1}</p>
+            <p>${msg.line2}</p>
+            <p class="motivation">${msg.line3}</p>
+            <div class="mini-action">🌸 ${msg.action}</div>
+          </div>
+          <div style="position:absolute; inset:auto 1rem 1rem auto; z-index:3; opacity:0.18; font-size:4rem;">✨</div>
+          <div style="position:absolute; inset:1rem auto auto 1rem; z-index:3; opacity:0.15; font-size:3.3rem;">💖</div>
+        </div>
+      `;
+    }
+
+    function renderDaysGrid(unlocked, current) {
+      const grid = document.getElementById("daysGrid");
+      grid.innerHTML = "";
+
+      for (let day = 1; day <= TOTAL_DAYS; day++) {
+        const btn = document.createElement("button");
+        btn.className = "day-cell";
+        const isUnlocked = day <= unlocked;
+        const isCurrent = day === current;
+
+        btn.classList.add(isUnlocked ? "unlocked" : "locked");
+        if (isCurrent) btn.classList.add("current");
+
+        btn.innerHTML = `
+          <span>${day}</span>
+          <span class="${isUnlocked ? "tiny-star" : "tiny-lock"}">${isUnlocked ? "✨" : "🔒"}</span>
+        `;
+
+        btn.disabled = !isUnlocked;
+        btn.setAttribute("aria-label", isUnlocked ? `Open day ${day}` : `Day ${day} locked`);
+        btn.addEventListener("click", () => {
+          selectedDay = day;
+          revealOpened = false;
+          updateRevealSection();
+          renderDaysGrid(unlockedDays(), selectedDay);
+        });
+
+        grid.appendChild(btn);
+      }
+    }
+
+    function updateMetrics(unlocked, current) {
+      const type = revealTypeForDay(current);
+      document.getElementById("streakText").textContent = unlocked > 0 ? `${unlocked} day streak` : "0 day streak";
+      document.getElementById("unlockedText").textContent = `${unlocked} unlocked`;
+      document.getElementById("currentDayMetric").textContent = current;
+      document.getElementById("daysLeftMetric").textContent = TOTAL_DAYS - current;
+      document.getElementById("styleMetric").textContent = type.label;
+      document.getElementById("moodMetric").textContent = type.mood;
+      document.getElementById("dayChip").textContent = `Day ${current}`;
+      document.getElementById("specialChip").textContent = specialLabel(current);
+      document.getElementById("dayIntroText").textContent = `This is the ${niceOrdinal(current)} page of Mishi’s journey. Today opens with a ${type.label.toLowerCase()} reveal.`;
+    }
+
+    function updateRevealSection() {
+      const unlocked = unlockedDays();
+      if (selectedDay > unlocked) selectedDay = unlocked || 1;
+      updateMetrics(unlocked || 1, selectedDay || 1);
+      renderReveal(selectedDay || 1, revealOpened);
+    }
+
+    function makeConfetti() {
+      const holder = document.getElementById("confetti");
+      holder.innerHTML = "";
+      const colors = ["#ff7aa2", "#7d6bff", "#f8c847", "#57a6ff", "#7edcc8", "#ffb37a"];
+
+      for (let i = 0; i < 48; i++) {
+        const piece = document.createElement("span");
+        piece.className = "piece";
+        piece.style.left = `${Math.random() * 100}%`;
+        piece.style.top = `${-10 - Math.random() * 20}vh`;
+        piece.style.background = colors[i % colors.length];
+        piece.style.animationDuration = `${3 + Math.random() * 2.5}s`;
+        piece.style.animationDelay = `${Math.random() * 0.4}s`;
+        piece.style.transform = `rotate(${Math.random() * 360}deg)`;
+        holder.appendChild(piece);
+      }
+
+      setTimeout(() => {
+        holder.innerHTML = "";
+      }, 5200);
+    }
+
+    function sparkleBurst(x, y) {
+      const icons = ["✨", "💖", "🌟", "⭐"];
+      for (let i = 0; i < 8; i++) {
+        const s = document.createElement("span");
+        s.className = "tiny-spark";
+        s.textContent = icons[i % icons.length];
+        s.style.left = `${x + (Math.random() * 80 - 40)}px`;
+        s.style.top = `${y + (Math.random() * 40 - 20)}px`;
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 1600);
+      }
+    }
+
+    function revealToday() {
+      revealOpened = true;
+      const active = document.getElementById("activeReveal");
+      if (active) {
+        active.classList.add("open");
+      }
+      makeConfetti();
+      sparkleBurst(window.innerWidth / 2, window.innerHeight / 2);
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      document.getElementById("themeToggle").textContent = theme === "dark" ? "☀️" : "🌙";
+      setCookie("mishi_theme", theme);
+    }
+
+    function loadTheme() {
+      const saved = getCookie("mishi_theme");
+      if (saved) {
+        setTheme(saved);
+      } else {
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        setTheme(prefersDark ? "dark" : "light");
+      }
+    }
+
+    function renderAll() {
+      const start = getStartDate();
+      const unlocked = start ? unlockedDays() : 0;
+
+      if (!start) {
+        document.getElementById("welcomeOverlay").classList.remove("hidden");
+        selectedDay = 1;
+      } else {
+        document.getElementById("welcomeOverlay").classList.add("hidden");
+        if (selectedDay < 1 || selectedDay > unlocked) selectedDay = unlocked;
+      }
+
+      const safeCurrent = Math.max(1, unlocked || 1);
+      renderDaysGrid(unlocked, selectedDay || safeCurrent);
+      updateMetrics(unlocked || 1, selectedDay || safeCurrent);
+      renderReveal(selectedDay || safeCurrent, revealOpened);
+    }
+
+    let selectedDay = 1;
+    let revealOpened = false;
+
+    document.getElementById("startJourneyBtn").addEventListener("click", startJourney);
+
+    document.getElementById("jumpTodayBtn").addEventListener("click", () => {
+      const unlocked = unlockedDays();
+      if (!unlocked) {
+        startJourney();
+        return;
+      }
+      selectedDay = unlocked;
+      revealOpened = false;
+      updateRevealSection();
+      document.getElementById("todaySection").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    document.getElementById("openRevealBtn").addEventListener("click", () => {
+      if (!getStartDate()) {
+        startJourney();
+        return;
+      }
+      revealToday();
+    });
+
+    document.getElementById("nextUnlockedBtn").addEventListener("click", () => {
+      const unlocked = unlockedDays();
+      if (!unlocked) return;
+      selectedDay = selectedDay >= unlocked ? 1 : selectedDay + 1;
+      revealOpened = false;
+      updateRevealSection();
+      renderDaysGrid(unlocked, selectedDay);
+    });
+
+    document.getElementById("restartBtn").addEventListener("click", () => {
+      const sure = confirm("Restart Mishi’s journey from Day 1?");
+      if (!sure) return;
+      eraseCookie("mishi_start_date");
+      revealOpened = false;
+      selectedDay = 1;
+      renderAll();
+    });
+
+    document.getElementById("themeToggle").addEventListener("click", () => {
+      const current = document.documentElement.getAttribute("data-theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+
+    loadTheme();
+    renderAll();
+  </script>
+</body>
+</html>
